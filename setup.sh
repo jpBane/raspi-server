@@ -23,6 +23,10 @@ sudo apt upgrade
 echo -e "${BLUE} ===== Installing Additional Programms =====${NC}"
 sudo apt install btop vim ranger
 
+echo -e "${BLUE} ===== Configuring Additional Programms =====${NC}"
+cp /etc/vim/vimrc ~/.vimrc
+echo -e "\n\" Relative line numbering \nset relativenumber \n \n\" Syntax Highlighting \nsyntax on" >> ~/.vimrc
+
 # Docker prerequesites
 echo -e "${BLUE} ===== Installing Docker Prerequesites =====${NC}"
 # Docker

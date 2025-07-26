@@ -25,7 +25,7 @@ sudo apt install btop vim ranger
 
 echo -e "${BLUE} ===== Configuring Additional Programms =====${NC}"
 cp /etc/vim/vimrc ~/.vimrc
-echo -e "\n\" Relative line numbering \nset relativenumber \n \n\" Syntax Highlighting \nsyntax on" >> ~/.vimrc
+echo -e "\n\" Relative line numbering \nset relativenumber \n \n\" Syntax Highlighting \nsyntax on \n\n\" Clear status line when vimrc is loaded \nset statusline= \n\n\" Status line left side \nset statusline+=\ path:\ %F\ \|\ %M\ \|\ type:\ %Y\ \|\ %R \n\n\" Divider to seperate left from right part \nset statusline+=%= \n\n\" Status line right side \nset statusline+=\ ascii:\ %b\ row:\ %l\ col:\ %c\ percent:\ %p%% \n\n\" Show the status on the second last line \nset laststatus=2" >> ~/.vimrc
 
 # Docker prerequesites
 echo -e "${BLUE} ===== Installing Docker Prerequesites =====${NC}"

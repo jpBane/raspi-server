@@ -61,7 +61,7 @@ systemctl status docker
 echo -e "${BLUE} ===== Pi-hole installation =====${NC}"
 mkdir ~/Docker
 cd ~/Docker
-wget https://raw.githubusercontent.com/jpBane/raspi-server/refs/heads/main/Dockerfile
+wget https://raw.githubusercontent.com/jpBane/raspi-server/refs/heads/main/docker-compose.yml
 
 echo -e "${BLUE} ===== Installation Complete =====${NC} \nPlease define a password in the Dockerfile located at ~/Docker before you run docker compose up -d"
 

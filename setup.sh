@@ -63,7 +63,7 @@ mkdir ~/Docker
 cd ~/Docker
 wget https://raw.githubusercontent.com/jpBane/raspi-server/refs/heads/main/Dockerfile
 
-echo -e "${BLUE} ===== Installation Complete =====${NC} \nPlease define a password in the Dockerfile located at ~/Docker before you run `docker compose up -d`"
+echo -e "${BLUE} ===== Installation Complete =====${NC} \nPlease define a password in the Dockerfile located at ~/Docker before you run docker compose up -d"
 
 else
     echo "This script is intended for Debian-based systems."

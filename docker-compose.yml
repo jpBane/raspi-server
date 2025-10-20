@@ -30,7 +30,7 @@ services:
       - ./mqtt/data:/mosquitto/data
       - ./mqtt/log:/mosquitto/log
 
-    # what about this part???
+    # not sure if i need it:
     stdin_open: true 
     tty: true
 

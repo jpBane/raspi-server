@@ -1,0 +1,43 @@
+services:
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - /mnt/external-ssd/influxdb:/var/lib/influxdb2
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME_FILE: /run/secrets/influxdb-username
+      DOCKER_INFLUXDB_INIT_PASSWORD_FILE: /run/secrets/influxdb-password
+      DOCKER_INFLUXDB_INIT_ORG: jp-solutions
+      DOCKER_INFLUXDB_INIT_BUCKET: test
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN_FILE: /run/secrets/influxdb-token
+    secrets:
+      - influxdb-username
+      - influxdb-password
+      - influxdb-token
+    restart: unless-stopped
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mqtt/config:/mosquitto/config # Quelle:Ziel (relativ vom Verzeichnis in dem compose.yaml liegt)
+      - ./mqtt/data:/mosquitto/data
+      - ./mqtt/log:/mosquitto/log
+
+    # what about this part???
+    stdin_open: true 
+    tty: true
+
+secrets:
+  influxdb-username:
+    file: ./influxdb/secrets/influxdb-username.txt
+  influxdb-password:
+    file: ./influxdb/secrets/influxdb-password.txt
+  influxdb-token:
+    file: ./influxdb/secrets/influxdb-token.txt
